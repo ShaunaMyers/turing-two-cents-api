@@ -19,6 +19,16 @@ app.get('/', (req, res) => {
   })
 })
 
+app.post('/', (req, res) => {
+  const { title, description, mod, upvotes} = req.body;
+  pool.query(`INSERT INTO turingtwocents (title, description, mod, upvotes) VALUES (${title}, ${description}, ${mod}, ${upvotes})`,
+  (err, response) => {
+    console.log(err, response)
+    res.status(200).send({ title, description, mod, upvotes })
+  }
+  )
+})
+
 
 
 app.locals.title = 'Turing Two Cents API';
