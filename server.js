@@ -12,6 +12,13 @@ const pool = new Pool({
   ssl: true
 })
 
+app.get('/', (req, res) => {
+  pool.query('SELECT * FROM turingtwocents', (err, response) => {
+    console.log(err, response)
+    res.status(200).send({rows: response.rows})
+  })
+})
+
 
 
 app.locals.title = 'Turing Two Cents API';
