@@ -29,8 +29,6 @@ app.post('/', (req, res) => {
   )
 })
 
-
-
 app.locals.title = 'Turing Two Cents API';
 
 
