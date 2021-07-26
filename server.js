@@ -4,7 +4,7 @@ const { response } = require('express');
 const app = express();
 app.use(express.json());
 app.use(cors());
-app.set('port', process.env.PORT || 3001);
+app.set('port', process.env.PORT || 3051);
 const { Pool } = require('pg');
 
 const pool = new Pool({
@@ -20,11 +20,11 @@ app.get('/', (req, res) => {
 })
 
 app.post('/', (req, res) => {
-  const { title, description, mod, upvotes} = req.body;
-  pool.query(`INSERT INTO turingtwocents (title, description, mod, upvotes) VALUES (${title}, ${description}, ${mod}, ${upvotes})`,
+  const { title, description, mod, upvotes, date} = req.body;
+  pool.query(`INSERT INTO turingtwocents(title, description, mod, upvotes, date) VALUES ('${title}', '${description}', ${mod}, ${upvotes}, '${date}')`,
   (err, response) => {
     console.log(err, response)
-    res.status(200).send({ title, description, mod, upvotes })
+    res.status(200).send({ title, description, mod, upvotes, date })
   }
   )
 })
