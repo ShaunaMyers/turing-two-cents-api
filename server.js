@@ -9,7 +9,7 @@ const { Pool } = require('pg');
 
 const pool = new Pool({
   connectionString: 'postgres://yjuallbecyquuz:ae9683fc25ec009cd257b0d1bcd71ba9efb41622fa4bd4e229336e67bd88105d@ec2-52-45-183-77.compute-1.amazonaws.com:5432/d89ngl6v155i5a',
-  ssl: true
+  ssl: { rejectUnauthorized: false }
 })
 
 app.get('/', (req, res) => {
