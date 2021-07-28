@@ -20,13 +20,22 @@ app.get('/', (req, res) => {
 })
 
 app.post('/', (req, res) => {
-  const { title, description, mod, upvotes, date} = req.body;
-  pool.query(`INSERT INTO turingtwocents(title, description, mod, upvotes, date) VALUES ('${title}', '${description}', ${mod}, ${upvotes}, '${date}')`,
+  const { title, description, mod, rating, date } = req.body;
+  pool.query(`INSERT INTO turingtwocents(title, description, mod, rating, date) VALUES ('${title}', '${description}', ${mod}, ${rating}, '${date}')`,
   (err, response) => {
     console.log(err, response)
-    res.status(200).send({ title, description, mod, upvotes, date })
-  }
-  )
+    res.status(200).send({ title, description, mod, rating, date })
+  })
+})
+
+app.delete('/', (req, res) => {
+  const { id } = req.body
+  console.log(id ,' :req.body<<<<')
+  pool.query(`DELETE FROM turingtwocents WHERE id = ${id}`, 
+  (err, response) => {
+    console.log(err, response)
+    res.status(200).send('Request successfully deleted')
+  })
 })
 
 app.locals.title = 'Turing Two Cents API';
