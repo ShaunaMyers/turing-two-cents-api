@@ -30,11 +30,19 @@ app.post('/', (req, res) => {
 
 app.delete('/', (req, res) => {
   const { id } = req.body
-  console.log(id ,' :req.body<<<<')
   pool.query(`DELETE FROM turingtwocents WHERE id = ${id}`, 
   (err, response) => {
     console.log(err, response)
     res.status(200).send('Request successfully deleted')
+  })
+})
+
+app.patch('/', (req, res) => {
+  const { rating, id } = req.body
+  pool.query(`UPDATE turingtwocents SET rating =${rating} WHERE id=${id} RETURNING *`,
+  (err, response) => {
+    console.log(err, response)
+    res.status(200).send('Rating successfully updated')
   })
 })
 
