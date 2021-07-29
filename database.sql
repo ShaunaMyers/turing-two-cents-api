@@ -1,4 +1,4 @@
-CREATE TABLE turingtwocents(id SERIAL PRIMARY KEY, title VARCHAR(50), description VARCHAR(500), mod INT, rating INT, date INT); 
+CREATE TABLE turingtwocents(id SERIAL PRIMARY KEY, title VARCHAR(50), description VARCHAR(500), mod INT, rating INT, date BIGINT); 
 
 INSERT INTO turingtwocents(title, description, mod, rating, date) VALUES ('Pre-teach', 'Definitely pre-teach yourself. Look ahead at lessons each day and even in the weeks ahead. This will help you on your projects. You are often not taught tech that you will need for projects', 1, 0, 1627599413278);
 
@@ -10,7 +10,7 @@ INSERT INTO turingtwocents(title, description, mod, rating, date) VALUES ('Ask f
 
 INSERT INTO turingtwocents(title, description, mod, rating, date) VALUES ('Believe your cohort mates have the best intentions', 'Tensions will rise. This is a stressful experience. You will get frustrated with each other. Try your hardest to remember that people are trying their best and are also stressed: they generally DO NOT mean harm.', 2, 0, 1523599413278);
 
-INSERT INTO turingtwocents(title, description, mod, rating, date) VALUES ('PD every day', 'If you set aside 30-45 minutes for PD everyay in the morning or afternoon you will be totally prepared for Mod 4 and graduation', 1, 0, '04/23/2021');
+INSERT INTO turingtwocents(title, description, mod, rating, date) VALUES ('PD every day', 'If you set aside 30-45 minutes for PD everyay in the morning or afternoon you will be totally prepared for Mod 4 and graduation', 1, 0, 1303599193278);
 
 INSERT INTO turingtwocents(title, description, mod, rating, date) VALUES ('Coding cut off time', 'Set a cut off time for coding every night. You will not get anything done after 9  or 10 PM. Spend that time winding down and getting good sleep. You will code better the next day.', 1, 0, 1423599413278);
 
