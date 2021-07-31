@@ -22,10 +22,10 @@ app.get('/', (req, res) => {
 })
 
 app.post('/', (req, res) => {
-  const reqParams = ['title', 'description', 'mod', 'rating', 'date'];
+  const reqParams = ['title', 'description', 'mod', 'date'];
   let error = false;
   reqParams.forEach((param, index) => {
-    if (!req.body[param]) {
+    if (!req.body[param] && param ) {
       res.status(422).send('Please send all required data');
       error = true;
     } else if (index === 4 && !error) {
