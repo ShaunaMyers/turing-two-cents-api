@@ -28,7 +28,7 @@ app.post('/', (req, res) => {
     if (!req.body[param] && param ) {
       res.status(422).send('Please send all required data');
       error = true;
-    } else if (index === 4 && !error) {
+    } else if (index === 3 && !error) {
       const { title, description, mod, rating, date } = req.body;
       pool.query(`INSERT INTO turingtwocents(title, description, mod, rating, date) VALUES ('${title}', '${description}', ${mod}, ${rating}, '${date}')`,
       (err, response) => {
