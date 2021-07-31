@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
   pool.query('SELECT * FROM turingtwocents', (err, response) => {
     console.log(err, response)
     err
-    ? res.status(404).send('Database Error')
+    ? res.status(500).send('Database Error')
     : res.status(200).send({rows: response.rows})
   })
 })
@@ -34,7 +34,7 @@ app.post('/', (req, res) => {
       (err, response) => {
         console.log(err, response)
         err 
-        ? res.status(404).send('Database Error')
+        ? res.status(500).send('Database Error')
         : res.status(200).send({ title, description, mod, rating, date })
       })
     }
@@ -47,7 +47,7 @@ app.delete('/', (req, res) => {
   (err, response) => {
     console.log(err, response)
     err 
-    ? res.status(404).send('Database Error')
+    ? res.status(500).send('Database Error')
     : res.status(200).send('Request successfully deleted')
   })
 })
@@ -58,7 +58,7 @@ app.patch('/', (req, res) => {
   (err, response) => {
     console.log(err, response)
     err 
-    ? res.status(404).send('Database Error')
+    ? res.status(500).send('Database Error')
     : res.status(200).send('Rating successfully updated')
   })
 })
