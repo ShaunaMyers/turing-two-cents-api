@@ -15,7 +15,9 @@ const pool = new Pool({
 app.get('/', (req, res) => {
   pool.query('SELECT * FROM turingtwocents', (err, response) => {
     console.log(err, response)
-    res.status(200).send({rows: response.rows})
+    err
+    ? res.status(404).send('Database Error')
+    : res.status(200).send({rows: response.rows})
   })
 })
 
@@ -31,7 +33,9 @@ app.post('/', (req, res) => {
       pool.query(`INSERT INTO turingtwocents(title, description, mod, rating, date) VALUES ('${title}', '${description}', ${mod}, ${rating}, '${date}')`,
       (err, response) => {
         console.log(err, response)
-        res.status(200).send({ title, description, mod, rating, date })
+        err 
+        ? res.status(404).send('Database Error')
+        : res.status(200).send({ title, description, mod, rating, date })
       })
     }
   })
@@ -42,7 +46,9 @@ app.delete('/', (req, res) => {
   pool.query(`DELETE FROM turingtwocents WHERE id = ${id}`, 
   (err, response) => {
     console.log(err, response)
-    res.status(200).send('Request successfully deleted')
+    err 
+    ? res.status(404).send('Database Error')
+    : res.status(200).send('Request successfully deleted')
   })
 })
 
@@ -51,7 +57,9 @@ app.patch('/', (req, res) => {
   pool.query(`UPDATE turingtwocents SET rating =${rating} WHERE id=${id} RETURNING *`,
   (err, response) => {
     console.log(err, response)
-    res.status(200).send('Rating successfully updated')
+    err 
+    ? res.status(404).send('Database Error')
+    : res.status(200).send('Rating successfully updated')
   })
 })
 
