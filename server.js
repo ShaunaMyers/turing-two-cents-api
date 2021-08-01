@@ -1,6 +1,5 @@
 const express = require('express');
 const cors = require('cors');
-const { response } = require('express');
 const app = express();
 app.use(express.json());
 app.use(cors());
@@ -64,7 +63,5 @@ app.patch('/', (req, res) => {
 })
 
 app.locals.title = 'Turing Two Cents API';
-
-
 
 app.listen(app.get('port'), () => {console.log(`${app.locals.title} is running on http://localhost:${app.get('port')}.`)});
