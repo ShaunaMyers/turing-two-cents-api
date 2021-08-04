@@ -18,7 +18,7 @@ Fetches can be made directly from the link above or this repo can be installed a
 ## Features
 
 - Allows clients to: 
-  - fetch all tips from a postgresQL Database hosted on Heroku 
+  - fetch all tips from a PostgreSQL Database hosted on Heroku 
   - post a new tip
   - delete a tip
   - add a new rating or update an existing rating on a tip
