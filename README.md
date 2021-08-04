@@ -50,7 +50,7 @@ Fetches can be made from the following endpoints:
 | Get all tips | / | GET |  N/A | `{"rows": [{"id": 1, "title": "Duck", "description": "When in doubt, keep your head down", "mod": 4, "rating": 2, "date": 1627391413078}]}` |
 | Add a new tip | / | POST |  `{"title": <String>, "description": <String> , "mod": <Integer>, "rating": <Integer> "date": <Integer>}` | `{"title": <String>, "description": <String> , "mod": <Integer>, "rating": <Integer> "date": <Integer>}` |
 | Delete a tip | / | DELETE | `{ "id": <Integer> }` | "Request successfully deleted." |
-| Update a rating | / | PATCH | `{"id": <Integer>, "rating": <Integer>}` | |
+| Update a rating | / | PATCH | `{"id": <Integer>, "rating": <Integer>}` | "Rating successfully updated" |
 
 ## Authors
 
